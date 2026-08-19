@@ -1,0 +1,125 @@
+---
+const pillars = [
+  {
+    num: "01",
+    tag: "PILLAR ONE",
+    title: "Conversion-Built Trade Site",
+    description: "Built specifically for high-ticket residential jobs. We showcase your best work, build instant local authority, and place clear, friction-free booking buttons everywhere."
+  },
+  {
+    num: "02",
+    tag: "PILLAR TWO",
+    title: "5-Second Instant SMS Dispatch",
+    description: "87% of homeowners buy from whichever contractor responds first. When a lead comes in while you're on a job, our system texts them back in 5 seconds to lock in the appointment."
+  },
+  {
+    num: "03",
+    tag: "PILLAR THREE",
+    title: "Missed Call & Review Auto-Pilot",
+    description: "Missed a call while operating heavy machinery? The system automatically sends an SMS rescue text. Finished a job? It texts the homeowner asking for a 5-star Google review."
+  }
+];
+---
+
+<section class="section breakdown-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">THE 3 PILLARS OF THE CONTRACTOR REVENUE ENGINE™</h2>
+      <p class="section-subtitle">Everything you need to own your local market for just $297/month.</p>
+    </div>
+
+    <div class="grid-3 pillars-grid">
+      {pillars.map((p) => (
+        <div class="pillar-card">
+          <div class="card-header">
+            <span class="pillar-tag">{p.tag}</span>
+            <span class="pillar-num">{p.num}</span>
+          </div>
+          <h3 class="pillar-title">{p.title}</h3>
+          <p class="pillar-desc">{p.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .breakdown-section {
+    padding: 5.5rem 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-white);
+    max-width: 900px;
+    margin: 0 auto 1rem auto;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+  }
+
+  .pillars-grid {
+    gap: 1.75rem;
+  }
+
+  .pillar-card {
+    background: #262626;
+    border: none;
+    border-radius: 0;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: background 0.25s ease;
+  }
+
+  .pillar-card:hover {
+    background: #2d2d2d;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pillar-tag {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--neon-green);
+    letter-spacing: 0.05em;
+  }
+
+  .pillar-num {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.15);
+  }
+
+  .pillar-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-white);
+    line-height: 1.3;
+  }
+
+  .pillar-desc {
+    font-size: 0.95rem;
+    color: #e2e8f0;
+    line-height: 1.65;
+  }
+</style>

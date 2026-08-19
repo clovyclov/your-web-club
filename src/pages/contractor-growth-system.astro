@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MetaHero from '../components/meta/MetaHero.astro';
+import GuaranteeSection from '../components/meta/GuaranteeSection.astro';
+import ComparisonTable from '../components/meta/ComparisonTable.astro';
+import EngineBreakdown from '../components/meta/EngineBreakdown.astro';
+import FormSection from '../components/FormSection.astro';
+import ContractorFAQ from '../components/meta/ContractorFAQ.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="The Contractor Revenue Engine™ | 10 Qualified Leads in 90 Days Guaranteed"
+  description="Get a high-converting contractor website & automated SMS booking system for $297/mo. We guarantee 10 qualified homeowner leads in your first 90 days or we work 100% free."
+>
+  <main>
+    <MetaHero />
+    <GuaranteeSection />
+    <ComparisonTable />
+    <EngineBreakdown />
+    <div id="claim-offer">
+      <FormSection />
+    </div>
+    <ContractorFAQ />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,232 @@
+---
+---
+
+<section class="section calculator-section">
+  <div class="container">
+    <div class="grid-2 calc-grid">
+      <!-- Calculator Form Card -->
+      <div class="calc-card">
+        <h3 class="calc-title">Conversion Rate Calculator</h3>
+        
+        <div class="calc-field">
+          <label for="visits">Enter your average number of website visits per month:</label>
+          <p class="field-hint">These are also known as "impressions". Just guess if you're unsure</p>
+          <input type="number" id="visits" placeholder="Ex: 1000" min="1" required />
+        </div>
+
+        <div class="calc-field">
+          <label for="amount">How much do you make per Sale ($):</label>
+          <input type="number" id="amount" placeholder="Ex: 1250" min="1" required />
+        </div>
+
+        <div class="calc-field">
+          <label for="conversionRateInput">Conversion Rate (%):</label>
+          <input type="number" id="conversionRateInput" placeholder="Ex: 2" step="0.1" min="0" required />
+          <p class="field-hint">
+            <strong>FYI:</strong> Conversion rate means the number of times someone buys your service, divided by the amount of people that saw your service. Example: If you had 1000 website visits, and 100 sales, then your conversion rate is 10%.
+          </p>
+        </div>
+
+        <button class="btn btn-neon btn-calc" id="calcBtn">Ok, Show Me</button>
+
+        <div class="result-box" id="resultContainer" style="display: none;">
+          <div class="result-item" id="salesResult"></div>
+          <div class="result-item revenue" id="revenueResult"></div>
+        </div>
+      </div>
+
+      <!-- Right Callout & Ready Box -->
+      <div class="info-col">
+        <div class="did-you-know-card">
+          <h4 class="info-title">DID YOU KNOW?</h4>
+          <p class="info-text">
+            Increasing your conversion even just 1% can have a huge impact on your business.<br/><br/>
+            Try our conversion calculator and get a sense of how much a low converting website is costing you in monthly revenue.
+          </p>
+        </div>
+
+        <div class="ready-card" id="readyCard" style="display: none;">
+          <h3 class="ready-title">Ready For Yours?</h3>
+          <p class="ready-text">
+            <strong>😲 Crazy right?</strong> Increasing your conversion rate by even just 1% can have such a huge impact on your monthly profits. We've implemented changes that have had as much as a 10% increase.
+          </p>
+          <a href="#book-a-call" class="btn btn-neon w-full">Ok, I want a high converting website system</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .calculator-section {
+    padding: 5rem 0;
+  }
+
+  .calc-grid {
+    align-items: flex-start;
+  }
+
+  .calc-card {
+    background: #14161a;
+    border: 1px solid var(--border-dark);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .calc-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-white);
+  }
+
+  .calc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .calc-field label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-white);
+  }
+
+  .field-hint {
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+
+  .calc-field input {
+    background: #0f1115;
+    border: 1px solid var(--border-dark);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .calc-field input:focus {
+    border-color: var(--neon-green);
+  }
+
+  .btn-calc {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .result-box {
+    background: #0f1115;
+    border: 1px solid var(--neon-green);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .result-item {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-white);
+  }
+
+  .result-item.revenue {
+    font-size: 1.3rem;
+    color: var(--neon-green);
+  }
+
+  /* Info Column */
+  .info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .did-you-know-card {
+    background: #14161a;
+    border: 1px solid var(--border-dark);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+
+  .info-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--neon-green);
+    margin-bottom: 1rem;
+  }
+
+  .info-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+  }
+
+  .ready-card {
+    background: #14161a;
+    border: 2px solid var(--neon-green);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .ready-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-white);
+  }
+
+  .ready-text {
+    font-size: 1rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  const calcBtn = document.getElementById('calcBtn');
+  const visitsInput = document.getElementById('visits') as HTMLInputElement;
+  const amountInput = document.getElementById('amount') as HTMLInputElement;
+  const conversionInput = document.getElementById('conversionRateInput') as HTMLInputElement;
+  const resultContainer = document.getElementById('resultContainer');
+  const salesResult = document.getElementById('salesResult');
+  const revenueResult = document.getElementById('revenueResult');
+  const readyCard = document.getElementById('readyCard');
+
+  if (calcBtn && visitsInput && amountInput && conversionInput && resultContainer && salesResult && revenueResult && readyCard) {
+    calcBtn.addEventListener('click', () => {
+      const visits = parseFloat(visitsInput.value);
+      const amount = parseFloat(amountInput.value);
+      const conversionRate = parseFloat(conversionInput.value);
+
+      if (isNaN(visits) || visits <= 0 || isNaN(amount) || amount < 0 || isNaN(conversionRate) || conversionRate < 0) {
+        alert("Please enter valid positive numbers for visits, amount, and conversion rate.");
+        return;
+      }
+
+      const sales = (conversionRate / 100) * visits;
+      const revenue = sales * amount;
+
+      salesResult.textContent = `Estimated Sales: ${sales.toFixed(0)}`;
+      revenueResult.textContent = `Potential Monthly Revenue: $${revenue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+      resultContainer.style.display = "flex";
+      readyCard.style.display = "flex";
+    });
+  }
+</script>

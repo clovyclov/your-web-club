@@ -1,0 +1,112 @@
+---
+const features = [
+  {
+    title: "No more Losing Potential customers",
+    description: "<strong>87% of businesses</strong> lose customers by not following up on a lead within 5 minutes. Your new system solves this for you without taking up your time."
+  },
+  {
+    title: "Proven Effective Website Formula",
+    description: "After designing hundreds of websites and systems, we help you with a website sales machine that works while you sleep."
+  },
+  {
+    title: "Let your system handle it all",
+    description: "The Your Web Club system helps you automate your business and communications with your customers so you can focus on your job."
+  },
+  {
+    title: "Fixes the marketing Gaps",
+    description: "Most leads for local businesses slip through the cracks and either forget about you or go to your competitors."
+  },
+  {
+    title: "Works While You Sleep",
+    description: "Use our proven Google Ads system to <strong>handle conversations and bookings 24/7</strong>, so you can focus on completing jobs."
+  },
+  {
+    title: "Gets The Sale",
+    description: "Use our proven framework and experience to help your website build trust, make your customers feel like they know you, and lead to more sales."
+  }
+];
+---
+
+<section class="section lead-system-section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">A tried and tested lead System that:</h2>
+    </div>
+
+    <div class="grid-3 features-grid">
+      {features.map((item) => (
+        <div class="feature-card">
+          <h3 class="feature-title">{item.title}</h3>
+          <p class="feature-desc" set:html={item.description} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .lead-system-section {
+    padding-top: 3.5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-white);
+    letter-spacing: -0.01em;
+  }
+
+  .features-grid {
+    gap: 1.75rem;
+  }
+
+  .feature-card {
+    background: #262626;
+    border: none;
+    border-radius: 0;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: background 0.2s ease;
+  }
+
+  .feature-card:hover {
+    background: #2d2d2d;
+  }
+
+  .feature-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-white);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  .feature-desc {
+    font-size: 0.95rem;
+    color: #e2e8f0;
+    line-height: 1.65;
+  }
+
+  .feature-desc :global(strong), .feature-desc :global(b) {
+    color: var(--text-white);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.6rem;
+    }
+  }
+</style>

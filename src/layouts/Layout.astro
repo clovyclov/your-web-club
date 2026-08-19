@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Your Web Club | Homeowner Lead Systems for Contractors",
+  description = "Helping Contractors, Landscapers, and Remodelers Book High-Quality Homeowner Jobs with results-driven Google and Meta ads."
+} = Astro.props;
+---
+
+<!html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="https://yourwebclub.com/wp-content/uploads/2024/12/ywc-logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourwebclub.com" />
+    <meta property="og:image" content="https://yourwebclub.com/wp-content/uploads/2024/12/ywc-logo.png" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
