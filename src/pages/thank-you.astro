@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="You're Booked! | Your Web Club"
+  description="Your strategy call is confirmed. Here's what happens next."
+>
+  <Header />
+  <main>
+    <section class="section thank-you-section">
+      <div class="container flex-column align-center">
+        <div class="check-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+
+        <h1 class="thank-you-heading">You're All Set!</h1>
+        <p class="thank-you-subheading">
+          Your strategy call is confirmed. Check your email for the calendar invite and call details.
+        </p>
+
+        <div class="next-steps-card">
+          <h2 class="next-steps-title">What Happens Next</h2>
+          <ol class="next-steps-list">
+            <li>
+              <span class="step-number">1</span>
+              <div>
+                <div class="step-title">Check Your Email</div>
+                <div class="step-text">You'll get a calendar invite with the call link and details.</div>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">2</span>
+              <div>
+                <div class="step-title">We'll Call You</div>
+                <div class="step-text">Your account executive will learn about your business and goals.</div>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">3</span>
+              <div>
+                <div class="step-title">Get Your Custom Plan</div>
+                <div class="step-text">Walk away with a clear plan to start booking more qualified leads.</div>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <a href="/" class="btn btn-neon btn-lg">Back to Home</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .thank-you-section {
+    padding: 5.5rem 0 6.5rem 0;
+    text-align: center;
+  }
+
+  .check-icon-wrap {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: rgba(112, 224, 0, 0.15);
+    border: 2px solid var(--neon-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .check-icon-wrap svg {
+    width: 36px;
+    height: 36px;
+    color: var(--neon-green);
+  }
+
+  .thank-you-heading {
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+
+  .thank-you-subheading {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    max-width: 560px;
+    line-height: 1.65;
+    margin-bottom: 3rem;
+  }
+
+  .next-steps-card {
+    background: #181b20;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    padding: 2.5rem;
+    max-width: 560px;
+    width: 100%;
+    margin-bottom: 2.75rem;
+  }
+
+  .next-steps-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-white);
+    letter-spacing: 0.02em;
+    margin-bottom: 1.75rem;
+  }
+
+  .next-steps-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  .next-steps-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--neon-green);
+    color: #0f172a;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-white);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .step-text {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .thank-you-heading {
+      font-size: 2rem;
+    }
+    .thank-you-subheading {
+      font-size: 1rem;
+    }
+    .next-steps-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
