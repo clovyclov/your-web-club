@@ -18,7 +18,7 @@
     <!-- Video Embed Directly Under Headline -->
     <p class="video-cta-label">See EXACTLY What You Get for $297 👇</p>
 
-    <div class="hero-video-wrapper">
+    <div class="hero-video-wrapper" id="videoWrapper">
       <div class="video-container" id="videoContainer">
         <video
           id="heroVideo"
@@ -394,6 +394,7 @@
   const heroVideo = document.getElementById('heroVideo') as HTMLVideoElement | null;
   const tapForSoundBtn = document.getElementById('tapForSoundBtn');
   const videoContainer = document.getElementById('videoContainer');
+  const videoWrapper = document.getElementById('videoWrapper');
   const pinCloseBtn = document.getElementById('pinCloseBtn');
 
   if (heroVideo && tapForSoundBtn) {
@@ -408,26 +409,40 @@
     });
   }
 
-  if (videoContainer) {
+  if (videoContainer && videoWrapper) {
     let dismissed = false;
+    let ticking = false;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (dismissed) return;
-        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
-          videoContainer.classList.add('is-pinned');
-        } else if (entry.isIntersecting) {
-          videoContainer.classList.remove('is-pinned');
+    function updatePinState() {
+      ticking = false;
+      if (dismissed || !videoContainer || !videoWrapper) return;
+      // Measure the wrapper (never fixed) instead of the container itself —
+      // once pinned, the container's own rect always reads as "on screen".
+      const top = videoWrapper.getBoundingClientRect().top;
+      if (top < 0) {
+        videoContainer.classList.add('is-pinned');
+      } else {
+        videoContainer.classList.remove('is-pinned');
+      }
+    }
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updatePinState);
         }
       },
-      { threshold: 0 }
+      { passive: true }
     );
-    observer.observe(videoContainer);
+
+    updatePinState();
 
     videoContainer.addEventListener('click', (e) => {
       if (!videoContainer.classList.contains('is-pinned')) return;
       if ((e.target as HTMLElement).closest('#pinCloseBtn')) return;
-      videoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      videoWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 
     if (pinCloseBtn) {
