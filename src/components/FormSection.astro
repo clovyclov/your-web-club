@@ -19,6 +19,11 @@
         </div>
 
         <div class="form-group">
+          <label for="businessName">Business name</label>
+          <input type="text" id="businessName" placeholder="Enter your business name" required />
+        </div>
+
+        <div class="form-group">
           <label for="phone">Phone *</label>
           <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required />
         </div>
@@ -26,13 +31,6 @@
         <div class="form-group">
           <label for="email">Email *</label>
           <input type="email" id="email" placeholder="john@company.com" required />
-        </div>
-
-        <div class="checkbox-group">
-          <input type="checkbox" id="consent" required checked />
-          <label for="consent">
-            By providing your phone number, you agree to receive text messages from Your Web Club regarding updates, promotions, and customer support. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel at any time.
-          </label>
         </div>
 
         <button type="submit" class="btn btn-blue btn-submit">Submit</button>
@@ -109,23 +107,6 @@
   .form-group input:focus {
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  }
-
-  .checkbox-group {
-    display: flex;
-    gap: 0.75rem;
-    align-items: flex-start;
-    margin-top: 0.5rem;
-  }
-
-  .checkbox-group input {
-    margin-top: 3px;
-  }
-
-  .checkbox-group label {
-    font-size: 0.75rem;
-    color: #64748b;
-    line-height: 1.4;
   }
 
   .btn-submit {
