@@ -6,7 +6,7 @@
     <div class="form-wrapper">
       <h2 class="form-title">DOMINATE YOUR MARKET TODAY</h2>
       
-      <form class="lead-form" onsubmit="event.preventDefault(); window.location.href = '/checkout';">
+      <form class="lead-form" id="leadForm">
         <div class="form-row grid-2">
           <div class="form-group">
             <label for="firstName">First name</label>
@@ -139,3 +139,23 @@
     }
   }
 </style>
+
+<script>
+  import { submitLead } from '../lib/submitLead';
+
+  const form = document.getElementById('leadForm') as HTMLFormElement | null;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    submitLead(
+      {
+        firstName: (document.getElementById('firstName') as HTMLInputElement).value,
+        lastName: (document.getElementById('lastName') as HTMLInputElement).value,
+        businessName: (document.getElementById('businessName') as HTMLInputElement).value,
+        phone: (document.getElementById('phone') as HTMLInputElement).value,
+        email: (document.getElementById('email') as HTMLInputElement).value,
+      },
+      '/checkout'
+    );
+  });
+</script>

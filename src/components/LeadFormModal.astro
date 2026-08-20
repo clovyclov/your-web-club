@@ -12,7 +12,7 @@
 
     <h2 class="form-title">DOMINATE YOUR MARKET TODAY</h2>
 
-    <form class="lead-form" onsubmit="event.preventDefault(); window.location.href = '/checkout';">
+    <form class="lead-form" id="modalLeadForm">
       <div class="form-row grid-2">
         <div class="form-group">
           <label for="modalFirstName">First name</label>
@@ -181,8 +181,25 @@
 </style>
 
 <script>
+  import { submitLead } from '../lib/submitLead';
+
   const dialog = document.getElementById('leadFormModal') as HTMLDialogElement | null;
   const closeBtn = document.getElementById('leadFormModalClose');
+  const modalForm = document.getElementById('modalLeadForm') as HTMLFormElement | null;
+
+  modalForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    submitLead(
+      {
+        firstName: (document.getElementById('modalFirstName') as HTMLInputElement).value,
+        lastName: (document.getElementById('modalLastName') as HTMLInputElement).value,
+        businessName: (document.getElementById('modalBusinessName') as HTMLInputElement).value,
+        phone: (document.getElementById('modalPhone') as HTMLInputElement).value,
+        email: (document.getElementById('modalEmail') as HTMLInputElement).value,
+      },
+      '/checkout'
+    );
+  });
 
   function openModal() {
     dialog?.showModal();
