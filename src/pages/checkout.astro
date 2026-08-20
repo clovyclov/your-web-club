@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Complete Your Order | Your Web Club"
+  description="You're one step away from launching your Contractor Revenue Engine™."
+>
+  <Header />
+  <main>
+    <section class="section checkout-section">
+      <div class="container flex-column align-center">
+        <p class="checkout-kicker">Almost There</p>
+        <h1 class="checkout-heading">Complete Your Order</h1>
+        <p class="checkout-subheading">You're one step away from launching your Contractor Revenue Engine™.</p>
+
+        <div class="checkout-card">
+          <div class="checkout-summary">
+            <div class="summary-row">
+              <span class="summary-label">Contractor Revenue Engine™</span>
+              <span class="summary-price">$297<span class="summary-period">/mo</span></span>
+            </div>
+            <ul class="summary-list">
+              <li>Conversion-built trade website</li>
+              <li>5-second instant SMS response</li>
+              <li>Missed call & review auto-pilot</li>
+              <li>100% exclusive homeowner leads</li>
+            </ul>
+            <div class="summary-guarantee">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+              14-Day Money-Back Guarantee — No Contracts
+            </div>
+          </div>
+
+          <div class="checkout-payment">
+            <stripe-buy-button
+              buy-button-id="buy_btn_1U6eo7G7tav84tnb1prZ2QVY"
+              publishable-key="pk_live_iEmhhvcUcRxu4zQLxnJ732Cm"
+            >
+            </stripe-buy-button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <script is:inline async src="https://js.stripe.com/v3/buy-button.js"></script>
+</Layout>
+
+<style>
+  .checkout-section {
+    padding: 5rem 0 6.5rem 0;
+    text-align: center;
+  }
+
+  .checkout-kicker {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--neon-green);
+    margin-bottom: 0.5rem;
+  }
+
+  .checkout-heading {
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+  }
+
+  .checkout-subheading {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+
+  .checkout-card {
+    background: #181b20;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    padding: 2.75rem;
+    max-width: 520px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .checkout-summary {
+    text-align: left;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .summary-label {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: var(--text-white);
+  }
+
+  .summary-price {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--neon-green);
+  }
+
+  .summary-period {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #94a3b8;
+  }
+
+  .summary-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .summary-list li {
+    font-size: 0.92rem;
+    color: #cbd5e1;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .summary-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--neon-green);
+    font-weight: 700;
+  }
+
+  .summary-guarantee {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--neon-green);
+  }
+
+  .summary-guarantee svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .checkout-payment {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .checkout-heading {
+      font-size: 2rem;
+    }
+    .checkout-subheading {
+      font-size: 1rem;
+    }
+    .checkout-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
