@@ -7,15 +7,9 @@
       <h2 class="form-title">DOMINATE YOUR MARKET TODAY</h2>
       
       <form class="lead-form" id="leadForm">
-        <div class="form-row grid-2">
-          <div class="form-group">
-            <label for="firstName">First name</label>
-            <input type="text" id="firstName" placeholder="Enter your first name" required />
-          </div>
-          <div class="form-group">
-            <label for="lastName">Last name</label>
-            <input type="text" id="lastName" placeholder="Enter your last name" required />
-          </div>
+        <div class="form-group">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" placeholder="Enter your full name" required />
         </div>
 
         <div class="form-group">
@@ -76,10 +70,6 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-  }
-
-  .form-row {
-    gap: 1rem;
   }
 
   .form-group {
@@ -149,8 +139,7 @@
     e.preventDefault();
     submitLead(
       {
-        firstName: (document.getElementById('firstName') as HTMLInputElement).value,
-        lastName: (document.getElementById('lastName') as HTMLInputElement).value,
+        fullName: (document.getElementById('fullName') as HTMLInputElement).value,
         businessName: (document.getElementById('businessName') as HTMLInputElement).value,
         phone: (document.getElementById('phone') as HTMLInputElement).value,
         email: (document.getElementById('email') as HTMLInputElement).value,

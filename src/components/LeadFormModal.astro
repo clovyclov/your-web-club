@@ -13,15 +13,9 @@
     <h2 class="form-title">DOMINATE YOUR MARKET TODAY</h2>
 
     <form class="lead-form" id="modalLeadForm">
-      <div class="form-row grid-2">
-        <div class="form-group">
-          <label for="modalFirstName">First name</label>
-          <input type="text" id="modalFirstName" placeholder="Enter your first name" required />
-        </div>
-        <div class="form-group">
-          <label for="modalLastName">Last name</label>
-          <input type="text" id="modalLastName" placeholder="Enter your last name" required />
-        </div>
+      <div class="form-group">
+        <label for="modalFullName">Full name</label>
+        <input type="text" id="modalFullName" placeholder="Enter your full name" required />
       </div>
 
       <div class="form-group">
@@ -118,10 +112,6 @@
     gap: 1.25rem;
   }
 
-  .form-row {
-    gap: 1rem;
-  }
-
   .form-group {
     display: flex;
     flex-direction: column;
@@ -191,8 +181,7 @@
     e.preventDefault();
     submitLead(
       {
-        firstName: (document.getElementById('modalFirstName') as HTMLInputElement).value,
-        lastName: (document.getElementById('modalLastName') as HTMLInputElement).value,
+        fullName: (document.getElementById('modalFullName') as HTMLInputElement).value,
         businessName: (document.getElementById('modalBusinessName') as HTMLInputElement).value,
         phone: (document.getElementById('modalPhone') as HTMLInputElement).value,
         email: (document.getElementById('modalEmail') as HTMLInputElement).value,
