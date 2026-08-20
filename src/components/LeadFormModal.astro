@@ -1,0 +1,241 @@
+---
+---
+
+<dialog id="leadFormModal" class="lead-form-modal">
+  <div class="modal-inner">
+    <button type="button" class="modal-close" id="leadFormModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <h2 class="form-title">DOMINATE YOUR MARKET TODAY</h2>
+
+    <form class="lead-form" onsubmit="event.preventDefault(); alert('Thank you! Strategy call request submitted.'); document.getElementById('leadFormModal')?.close();">
+      <div class="form-row grid-2">
+        <div class="form-group">
+          <label for="modalFirstName">First name</label>
+          <input type="text" id="modalFirstName" placeholder="Enter your first name" required />
+        </div>
+        <div class="form-group">
+          <label for="modalLastName">Last name</label>
+          <input type="text" id="modalLastName" placeholder="Enter your last name" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="modalPhone">Phone *</label>
+        <input type="tel" id="modalPhone" placeholder="+1 (555) 000-0000" required />
+      </div>
+
+      <div class="form-group">
+        <label for="modalEmail">Email *</label>
+        <input type="email" id="modalEmail" placeholder="john@company.com" required />
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="modalConsent" required checked />
+        <label for="modalConsent">
+          By providing your phone number, you agree to receive text messages from Your Web Club regarding updates, promotions, and customer support. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel at any time.
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-blue btn-submit">Submit</button>
+
+      <div class="form-footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <span>|</span>
+        <a href="/terms">Terms of Service</a>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<style>
+  .lead-form-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    max-width: 580px;
+    width: calc(100% - 2rem);
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    background: #ffffff;
+    color: #1e293b;
+    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.6);
+  }
+
+  .lead-form-modal::backdrop {
+    background: rgba(5, 6, 8, 0.75);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-inner {
+    position: relative;
+    padding: 3.25rem 3rem;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 50%;
+    color: #334155;
+    cursor: pointer;
+  }
+
+  .modal-close svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .form-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: #0f172a;
+    margin-bottom: 2.25rem;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  .lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row {
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #334155;
+  }
+
+  .form-group input {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .form-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+
+  .checkbox-group {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .checkbox-group input {
+    margin-top: 3px;
+  }
+
+  .checkbox-group label {
+    font-size: 0.75rem;
+    color: #64748b;
+    line-height: 1.4;
+  }
+
+  .btn-submit {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    padding: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+
+  .form-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 1rem;
+  }
+
+  .form-footer-links a {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .modal-inner {
+      padding: 2.5rem 1.5rem 2rem;
+    }
+    .form-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('leadFormModal') as HTMLDialogElement | null;
+  const closeBtn = document.getElementById('leadFormModalClose');
+
+  function openModal() {
+    dialog?.showModal();
+    document.body.classList.add('modal-open');
+  }
+
+  function closeModal() {
+    dialog?.close();
+    document.body.classList.remove('modal-open');
+  }
+
+  if (dialog) {
+    closeBtn?.addEventListener('click', closeModal);
+
+    // Close on backdrop click (click outside the modal's content box)
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      const clickedOutside =
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom;
+      if (clickedOutside) closeModal();
+    });
+
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('modal-open');
+    });
+  }
+
+  document.querySelectorAll('[data-open-lead-modal]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+</script>
