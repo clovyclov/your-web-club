@@ -3,6 +3,7 @@ import Stripe from 'stripe';
 export interface Env {
   STRIPE_SECRET_KEY: string;
   TURNSTILE_SECRET_KEY?: string;
+  GHL_WEBHOOK_URL: string;
 }
 
 const ALLOWED_ORIGINS = new Set([
@@ -11,9 +12,6 @@ const ALLOWED_ORIGINS = new Set([
 ]);
 
 const PRICE_ID = 'price_1U6fbiG7tav84tnb62iqsZMe';
-
-const GHL_WEBHOOK_URL =
-  'https://services.leadconnectorhq.com/hooks/TSqcO2Er7wAliwNMEQpv/webhook-trigger/f3716bf8-2fe1-46d4-97c4-f8b1c1914e4a';
 
 function corsHeaders(origin: string | null): Record<string, string> {
   const allowOrigin = origin && ALLOWED_ORIGINS.has(origin) ? origin : 'https://yourwebclub.com';
@@ -100,7 +98,7 @@ async function handleSubmitLead(request: Request, env: Env, headers: Record<stri
   const { turnstileToken, website, ...leadData } = payload;
 
   try {
-    await fetch(GHL_WEBHOOK_URL, {
+    await fetch(env.GHL_WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(leadData),
