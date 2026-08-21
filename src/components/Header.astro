@@ -13,26 +13,6 @@
     <!-- Header Actions -->
     <div class="header-actions">
       <a href="#" data-open-lead-modal class="btn btn-neon btn-sm">Schedule A Strategy Call</a>
-      
-      <!-- Mobile Toggle -->
-      <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Offcanvas Menu -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <div class="drawer-header">
-      <img src="/logos/ywc-logo.png" alt="Logo" class="drawer-logo" />
-      <button class="drawer-close" id="drawerCloseBtn">&times;</button>
-    </div>
-    <div class="drawer-body">
-      <div class="drawer-actions">
-        <a href="#" data-open-lead-modal class="btn btn-neon w-full">Schedule A Strategy Call</a>
-      </div>
     </div>
   </div>
 </header>
@@ -70,113 +50,20 @@
   .btn-sm {
     padding: 0.65rem 1.35rem;
     font-size: 0.8rem;
+    white-space: nowrap;
   }
 
-  .mobile-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-  }
-
-  .mobile-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: white;
-    border-radius: 2px;
-    transition: 0.3s;
-  }
-
-  /* Mobile Drawer */
-  .mobile-drawer {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 300px;
-    height: 100vh;
-    background: #0d0e12;
-    z-index: 200;
-    padding: 2rem 1.5rem;
-    transition: left 0.3s ease;
-    box-shadow: 10px 0 30px rgba(0,0,0,0.8);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mobile-drawer.open {
-    left: 0;
-  }
-
-  .drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-
-  .drawer-logo {
-    height: 32px;
-  }
-
-  .drawer-close {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-
-  .drawer-body {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .drawer-link {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: white;
-    text-transform: uppercase;
-  }
-
-  .drawer-actions {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .w-full {
-    width: 100%;
-  }
-
-  @media (max-width: 900px) {
-    .header-review-btn {
-      display: none;
+  @media (max-width: 480px) {
+    .header-container {
+      height: 64px;
     }
-    .mobile-toggle {
-      display: flex;
+    .logo-img {
+      height: 32px;
+    }
+    .btn-sm {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.01em;
     }
   }
 </style>
-
-<script>
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
-
-  if (mobileMenuBtn && mobileDrawer && drawerCloseBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileDrawer.classList.add('open');
-    });
-
-    drawerCloseBtn.addEventListener('click', () => {
-      mobileDrawer.classList.remove('open');
-    });
-  }
-</script>
