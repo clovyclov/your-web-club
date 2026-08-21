@@ -28,10 +28,10 @@ const items = [
       </div>
     </div>
 
-    <div class="value-cta-bar">
-      <div class="value-cta-price">Today: $297/mo</div>
+    <a href="#" data-open-lead-modal class="value-cta-bar">
+      <div class="value-cta-price">Get Started For $297/mo</div>
       <div class="value-cta-subtext">No contract. Cancel any time.</div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -123,6 +123,7 @@ const items = [
   }
 
   .value-cta-bar {
+    display: block;
     margin-top: 2.5rem;
     max-width: 700px;
     width: 100%;
@@ -131,6 +132,15 @@ const items = [
     box-shadow: 6px 6px 0px #000000;
     padding: 1.5rem;
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  }
+
+  .value-cta-bar:hover {
+    background: var(--btn-orange-hover);
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px #000000;
   }
 
   .value-cta-price {
