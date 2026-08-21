@@ -33,6 +33,11 @@
         <input type="email" id="modalEmail" placeholder="john@company.com" required />
       </div>
 
+      <div class="hp-field" aria-hidden="true">
+        <label for="modalWebsite">Website</label>
+        <input type="text" id="modalWebsite" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
       <button type="submit" class="btn btn-blue btn-submit">Submit</button>
     </form>
   </div>
@@ -140,6 +145,14 @@
     letter-spacing: 0.04em;
   }
 
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
   @media (max-width: 640px) {
     .modal-inner {
       padding: 2.5rem 1.5rem 2rem;
@@ -165,6 +178,7 @@
         businessName: (document.getElementById('modalBusinessName') as HTMLInputElement).value,
         phone: (document.getElementById('modalPhone') as HTMLInputElement).value,
         email: (document.getElementById('modalEmail') as HTMLInputElement).value,
+        website: (document.getElementById('modalWebsite') as HTMLInputElement).value,
       },
       '/checkout'
     );

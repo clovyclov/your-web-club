@@ -1,8 +1,7 @@
-const WEBHOOK_URL =
-  'https://services.leadconnectorhq.com/hooks/TSqcO2Er7wAliwNMEQpv/webhook-trigger/f3716bf8-2fe1-46d4-97c4-f8b1c1914e4a';
+import { WORKER_BASE_URL } from './workerConfig';
 
 export async function submitLead(data: Record<string, string>, redirectTo: string) {
-  const post = fetch(WEBHOOK_URL, {
+  const post = fetch(`${WORKER_BASE_URL}/submit-lead`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),

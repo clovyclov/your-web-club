@@ -49,9 +49,9 @@ import Footer from '../components/Footer.astro';
 
 <script>
   import { loadStripe } from '@stripe/stripe-js';
+  import { WORKER_BASE_URL } from '../lib/workerConfig';
 
-  // TODO: replace with the deployed Worker URL (from `wrangler deploy` in /worker)
-  const CHECKOUT_SESSION_ENDPOINT = 'https://your-web-club-checkout.YOUR-SUBDOMAIN.workers.dev/create-checkout-session';
+  const CHECKOUT_SESSION_ENDPOINT = `${WORKER_BASE_URL}/create-checkout-session`;
 
   const stripePromise = loadStripe('pk_live_iEmhhvcUcRxu4zQLxnJ732Cm');
 

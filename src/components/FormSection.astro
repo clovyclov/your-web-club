@@ -27,6 +27,11 @@
           <input type="email" id="email" placeholder="john@company.com" required />
         </div>
 
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
         <button type="submit" class="btn btn-blue btn-submit">Submit</button>
       </form>
     </div>
@@ -100,6 +105,14 @@
     letter-spacing: 0.04em;
   }
 
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
   @media (max-width: 640px) {
     .form-wrapper {
       padding: 2rem 1.5rem;
@@ -123,6 +136,7 @@
         businessName: (document.getElementById('businessName') as HTMLInputElement).value,
         phone: (document.getElementById('phone') as HTMLInputElement).value,
         email: (document.getElementById('email') as HTMLInputElement).value,
+        website: (document.getElementById('website') as HTMLInputElement).value,
       },
       '/checkout'
     );
