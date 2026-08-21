@@ -1,0 +1,172 @@
+---
+const items = [
+  { label: 'Website (Conversion Machine)', value: '$1,500' },
+  { label: 'AI Booking Engine', value: '$1,200/mo' },
+  { label: 'FREE: Go High Level (GHL) Account', value: '$497/mo' },
+  { label: 'Dedicated USA Based Account Executive', value: '$1,497' },
+];
+---
+
+<section class="section value-stack-section">
+  <div class="container flex-column align-center">
+    <p class="value-kicker">The Math</p>
+    <h2 class="value-heading">Here's Everything You're Getting</h2>
+
+    <div class="value-card">
+      <ul class="value-list">
+        {items.map((item) => (
+          <li class="value-row">
+            <span class="value-label">{item.label}</span>
+            <span class="value-amount">{item.value}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="value-total-row">
+        <span class="value-total-label">Total Value</span>
+        <span class="value-total-amount">$4,694</span>
+      </div>
+    </div>
+
+    <div class="value-cta-bar">
+      <div class="value-cta-price">Today: $297/mo</div>
+      <div class="value-cta-subtext">No contract. Cancel any time.</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .value-stack-section {
+    padding: 5rem 0 5.5rem 0;
+  }
+
+  .value-kicker {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--neon-green);
+    margin-bottom: 0.5rem;
+  }
+
+  .value-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+  }
+
+  .value-card {
+    background: #181b20;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .value-list {
+    list-style: none;
+  }
+
+  .value-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.15rem 1.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .value-label {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+  }
+
+  .value-amount {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-white);
+    white-space: nowrap;
+  }
+
+  .value-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.35rem 1.75rem;
+    background: rgba(112, 224, 0, 0.08);
+  }
+
+  .value-total-label {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-white);
+  }
+
+  .value-total-amount {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #94a3b8;
+    text-decoration-line: line-through;
+    text-decoration-color: #ef4444;
+    text-decoration-thickness: 3px;
+  }
+
+  .value-cta-bar {
+    margin-top: 2.5rem;
+    max-width: 700px;
+    width: 100%;
+    background: var(--btn-orange);
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .value-cta-price {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+  }
+
+  .value-cta-subtext {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 0.35rem;
+  }
+
+  @media (max-width: 640px) {
+    .value-heading {
+      font-size: 1.6rem;
+    }
+    .value-row {
+      padding: 1rem 1.25rem;
+    }
+    .value-label {
+      font-size: 0.88rem;
+    }
+    .value-total-row {
+      padding: 1.15rem 1.25rem;
+    }
+    .value-total-amount {
+      font-size: 1.25rem;
+    }
+    .value-cta-price {
+      font-size: 1.15rem;
+    }
+  }
+</style>
