@@ -1,0 +1,170 @@
+---
+const steps = [
+  {
+    day: 'Day 1',
+    title: 'You Send Us Your Work Photos',
+    description: "Business info, service area, and a handful of photos of your best work. No long onboarding forms, no discovery calls.",
+  },
+  {
+    day: 'Day 2–4',
+    title: 'We Build Your Site',
+    description: 'Your conversion-focused website goes into production on our proven trade-site framework.',
+  },
+  {
+    day: 'Day 5–6',
+    title: 'We Wire Up The System',
+    description: '5-second SMS response, missed-call text-back, and automated review requests get connected and tested.',
+  },
+  {
+    day: 'Day 7',
+    title: "You're Live",
+    description: 'Your website system is live and taking homeowner inquiries.',
+  },
+];
+---
+
+<section class="section timeline-section">
+  <div class="container flex-column align-center">
+    <p class="timeline-kicker">The Timeline</p>
+    <h2 class="timeline-heading">From Sign-Up To Live In 7 Days</h2>
+
+    <div class="timeline-list">
+      {steps.map((step, i) => (
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="timeline-dot">{i + 1}</div>
+            {i < steps.length - 1 && <div class="timeline-line"></div>}
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-day">{step.day}</span>
+            <h3 class="timeline-title">{step.title}</h3>
+            <p class="timeline-description">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline-section {
+    padding: 4.5rem 0 5rem 0;
+  }
+
+  .timeline-kicker {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--neon-green);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 3rem;
+  }
+
+  .timeline-list {
+    max-width: 640px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .timeline-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--neon-green);
+    color: #0f172a;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2.5px solid #000000;
+    flex-shrink: 0;
+  }
+
+  .timeline-line {
+    width: 2px;
+    flex: 1;
+    background: var(--border-dark, rgba(255, 255, 255, 0.15));
+    margin: 0.35rem 0;
+    min-height: 2rem;
+  }
+
+  .timeline-content {
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline-day {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--neon-green);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-description {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+
+  .timeline-item:last-child .timeline-content {
+    padding-bottom: 0;
+  }
+
+  @media (max-width: 640px) {
+    .timeline-heading {
+      font-size: 1.6rem;
+    }
+    .timeline-item {
+      gap: 1rem;
+    }
+    .timeline-dot {
+      width: 34px;
+      height: 34px;
+      font-size: 0.95rem;
+    }
+    .timeline-title {
+      font-size: 1.05rem;
+    }
+    .timeline-description {
+      font-size: 0.88rem;
+    }
+  }
+</style>
