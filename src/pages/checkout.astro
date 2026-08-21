@@ -38,19 +38,40 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <div class="checkout-payment">
-            <stripe-buy-button
-              buy-button-id="buy_btn_1U6gFhG7tav84tnboZ7mVgOp"
-              publishable-key="pk_live_iEmhhvcUcRxu4zQLxnJ732Cm"
-            >
-            </stripe-buy-button>
+            <div id="checkout"></div>
           </div>
         </div>
       </div>
     </section>
   </main>
   <Footer />
-  <script is:inline async src="https://js.stripe.com/v3/buy-button.js"></script>
 </Layout>
+
+<script>
+  import { loadStripe } from '@stripe/stripe-js';
+
+  // TODO: replace with the deployed Worker URL (from `wrangler deploy` in /worker)
+  const CHECKOUT_SESSION_ENDPOINT = 'https://your-web-club-checkout.YOUR-SUBDOMAIN.workers.dev/create-checkout-session';
+
+  const stripePromise = loadStripe('pk_live_iEmhhvcUcRxu4zQLxnJ732Cm');
+
+  async function initCheckout() {
+    const stripe = await stripePromise;
+    if (!stripe) return;
+
+    const checkout = await stripe.initEmbeddedCheckout({
+      fetchClientSecret: async () => {
+        const res = await fetch(CHECKOUT_SESSION_ENDPOINT, { method: 'POST' });
+        const data = await res.json();
+        return data.clientSecret;
+      },
+    });
+
+    checkout.mount('#checkout');
+  }
+
+  initCheckout();
+</script>
 
 <style>
   .checkout-section {
@@ -173,6 +194,11 @@ import Footer from '../components/Footer.astro';
   .checkout-payment {
     display: flex;
     justify-content: center;
+  }
+
+  #checkout {
+    width: 100%;
+    min-height: 280px;
   }
 
   @media (max-width: 768px) {
