@@ -59,7 +59,7 @@ import Footer from '../components/Footer.astro';
     const stripe = await stripePromise;
     if (!stripe) return;
 
-    const checkout = await stripe.initEmbeddedCheckout({
+    const checkout = await stripe.createEmbeddedCheckoutPage({
       fetchClientSecret: async () => {
         const res = await fetch(CHECKOUT_SESSION_ENDPOINT, { method: 'POST' });
         const data = await res.json();
