@@ -1,0 +1,77 @@
+---
+interface Props {
+  heading?: string;
+  subheading?: string;
+  headingLevel?: 1 | 2;
+}
+
+const {
+  heading = 'Book Your Strategy Call',
+  subheading = "You're almost there — pick a time below that works best for you.",
+  headingLevel = 2,
+} = Astro.props;
+
+const Heading = headingLevel === 1 ? 'h1' : 'h2';
+---
+
+<section class="section booking-section">
+  <div class="container flex-column align-center">
+    <Heading class="booking-heading">{heading}</Heading>
+    <p class="booking-subheading">{subheading}</p>
+
+    <div class="booking-embed">
+      <iframe
+        src="https://link.yourwebclub.com/widget/booking/IiMXa8tjg71xunqbWOnY"
+        style="width: 100%; border: none; overflow: hidden;"
+        scrolling="no"
+        id="IiMXa8tjg71xunqbWOnY_1787258471758"
+        allow="payment"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<script is:inline src="https://link.yourwebclub.com/js/form_embed.js"></script>
+
+<style>
+  .booking-section {
+    padding: 4.5rem 0 6rem 0;
+  }
+
+  .booking-heading {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+  }
+
+  .booking-subheading {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    text-align: center;
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+  }
+
+  .booking-embed {
+    width: 100%;
+    max-width: 900px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.6);
+  }
+
+  @media (max-width: 768px) {
+    .booking-heading {
+      font-size: 1.75rem;
+    }
+    .booking-subheading {
+      font-size: 1rem;
+    }
+  }
+</style>
