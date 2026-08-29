@@ -14,7 +14,7 @@
 
     <div class="booking-embed">
       <iframe
-        data-src="https://link.yourwebclub.com/widget/booking/IiMXa8tjg71xunqbWOnY"
+        src="https://link.yourwebclub.com/widget/booking/IiMXa8tjg71xunqbWOnY"
         style="width: 100%; border: none; overflow: hidden;"
         scrolling="no"
         id="bookingModalIframe_1787258471758"
@@ -106,12 +106,8 @@
 <script>
   const dialog = document.getElementById('bookingModal') as HTMLDialogElement | null;
   const closeBtn = document.getElementById('bookingModalClose');
-  const iframe = document.getElementById('bookingModalIframe_1787258471758') as HTMLIFrameElement | null;
 
   function openModal() {
-    if (iframe && !iframe.getAttribute('src') && iframe.dataset.src) {
-      iframe.src = iframe.dataset.src;
-    }
     dialog?.showModal();
     document.body.classList.add('modal-open');
   }
