@@ -1,0 +1,98 @@
+---
+const examples = [
+  { src: '/work-examples/1934bbq.webp', alt: 'Website example: 1934 BBQ' },
+  { src: '/work-examples/active-recovery-after-2.webp', alt: 'Website example: Active Recovery' },
+  { src: '/work-examples/assemblyjj.webp', alt: 'Website example: Assembly Jiu-Jitsu' },
+  { src: '/work-examples/bw-inner.webp', alt: 'Website example: BW' },
+  { src: '/work-examples/detroitjj.webp', alt: 'Website example: Detroit Jiu-Jitsu' },
+  { src: '/work-examples/dumpsters911.webp', alt: 'Website example: Dumpsters 911' },
+  { src: '/work-examples/gotyard.webp', alt: 'Website example: Got Yard Landscape' },
+  { src: '/work-examples/integrity.webp', alt: 'Website example: Integrity' },
+  { src: '/work-examples/rsmfg.webp', alt: 'Website example: RS Manufacturing' },
+  { src: '/work-examples/saber-after.webp', alt: 'Website example: Saber' },
+  { src: '/work-examples/taap.webp', alt: 'Website example: TAAP' },
+  { src: '/work-examples/tabor-after.webp', alt: 'Website example: Tabor' },
+];
+---
+
+<section class="section work-examples-section">
+  <div class="container flex-column align-center">
+    <p class="work-examples-kicker">Real Work, Real Results</p>
+    <h2 class="work-examples-heading">See What We've Built</h2>
+  </div>
+
+  <div class="marquee-container work-marquee">
+    <div class="marquee-content work-marquee-content">
+      {examples.concat(examples).map((ex) => (
+        <div class="work-item">
+          <img src={ex.src} alt={ex.alt} loading="lazy" class="work-img" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .work-examples-section {
+    padding: 4.5rem 0 5rem 0;
+    overflow: hidden;
+  }
+
+  .work-examples-kicker {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--neon-green);
+    margin-bottom: 0.5rem;
+  }
+
+  .work-examples-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 2.75rem;
+  }
+
+  .work-marquee-content {
+    animation: marquee 55s linear infinite;
+    gap: 1.75rem;
+  }
+
+  .work-marquee-content:hover {
+    animation-play-state: paused;
+  }
+
+  .work-item {
+    flex-shrink: 0;
+    width: 240px;
+    height: 320px;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    overflow: hidden;
+    background: #181b20;
+  }
+
+  .work-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .work-examples-heading {
+      font-size: 1.6rem;
+    }
+    .work-item {
+      width: 180px;
+      height: 240px;
+    }
+  }
+</style>
