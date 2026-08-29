@@ -5,11 +5,13 @@ import LeadFormModal from '../components/LeadFormModal.astro';
 interface Props {
   title?: string;
   description?: string;
+  includeLeadModal?: boolean;
 }
 
 const {
   title = "Your Web Club | Homeowner Lead Systems for Contractors",
-  description = "Helping Contractors, Landscapers, and Remodelers Book High-Quality Homeowner Jobs with results-driven Google and Meta ads."
+  description = "Helping Contractors, Landscapers, and Remodelers Book High-Quality Homeowner Jobs with results-driven Google and Meta ads.",
+  includeLeadModal = true,
 } = Astro.props;
 ---
 
@@ -45,6 +47,6 @@ const {
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <slot />
-    <LeadFormModal />
+    {includeLeadModal && <LeadFormModal />}
   </body>
 </html>

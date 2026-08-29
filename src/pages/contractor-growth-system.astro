@@ -9,13 +9,15 @@ import OnboardingTimelineSection from '../components/meta/OnboardingTimelineSect
 import ValueStackSection from '../components/meta/ValueStackSection.astro';
 import PricingJustificationSection from '../components/meta/PricingJustificationSection.astro';
 import BookingEmbedSection from '../components/BookingEmbedSection.astro';
+import BookingModal from '../components/BookingModal.astro';
 import ContractorFAQ from '../components/meta/ContractorFAQ.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout 
+<Layout
   title="The Contractor Growth System™ | 14-Day Money-Back Guarantee"
   description="Get a high-converting contractor website & automated SMS booking system for $297/mo. Try it for 14 days — if you're not satisfied, get a full refund, no questions asked."
+  includeLeadModal={false}
 >
   <main>
     <MetaHero />
@@ -31,5 +33,6 @@ import Footer from '../components/Footer.astro';
     </div>
     <ContractorFAQ />
   </main>
-  <Footer />
+  <Footer ctaAttribute="data-open-booking-modal" />
+  <BookingModal />
 </Layout>

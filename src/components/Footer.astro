@@ -1,4 +1,9 @@
 ---
+interface Props {
+  ctaAttribute?: string;
+}
+
+const { ctaAttribute = 'data-open-lead-modal' } = Astro.props;
 ---
 
 <footer class="footer">
@@ -14,7 +19,7 @@
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#resources">Resources</a>
-        <a href="#" data-open-lead-modal>Strategy Call</a>
+        <a href="#" {...{ [ctaAttribute]: true }}>Strategy Call</a>
       </div>
     </div>
 

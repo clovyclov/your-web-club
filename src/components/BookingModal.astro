@@ -1,0 +1,147 @@
+---
+---
+
+<dialog id="bookingModal" class="booking-modal">
+  <div class="modal-inner">
+    <button type="button" class="modal-close" id="bookingModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <h2 class="modal-heading">Book Your Strategy Call</h2>
+
+    <div class="booking-embed">
+      <iframe
+        data-src="https://link.yourwebclub.com/widget/booking/IiMXa8tjg71xunqbWOnY"
+        style="width: 100%; border: none; overflow: hidden;"
+        scrolling="no"
+        id="bookingModalIframe_1787258471758"
+        allow="payment"
+      ></iframe>
+    </div>
+  </div>
+</dialog>
+
+<script is:inline src="https://link.yourwebclub.com/js/form_embed.js"></script>
+
+<style>
+  .booking-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    max-width: 700px;
+    width: calc(100% - 2rem);
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    background: #ffffff;
+    color: #1e293b;
+    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.6);
+  }
+
+  .booking-modal::backdrop {
+    background: rgba(5, 6, 8, 0.75);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-inner {
+    position: relative;
+    padding: 2.5rem 2rem;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 50%;
+    color: #334155;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+  .modal-close svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .modal-heading {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .booking-embed {
+    width: 100%;
+    min-height: 300px;
+  }
+
+  @media (max-width: 640px) {
+    .modal-inner {
+      padding: 2.25rem 1.25rem 1.5rem;
+    }
+    .modal-heading {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('bookingModal') as HTMLDialogElement | null;
+  const closeBtn = document.getElementById('bookingModalClose');
+  const iframe = document.getElementById('bookingModalIframe_1787258471758') as HTMLIFrameElement | null;
+
+  function openModal() {
+    if (iframe && !iframe.getAttribute('src') && iframe.dataset.src) {
+      iframe.src = iframe.dataset.src;
+    }
+    dialog?.showModal();
+    document.body.classList.add('modal-open');
+  }
+
+  function closeModal() {
+    dialog?.close();
+  }
+
+  if (dialog) {
+    closeBtn?.addEventListener('click', closeModal);
+
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      const clickedOutside =
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom;
+      if (clickedOutside) closeModal();
+    });
+
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('modal-open');
+    });
+  }
+
+  document.querySelectorAll('[data-open-booking-modal]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+</script>
