@@ -1,0 +1,1187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Client Onboarding | Your Web Club"
+  description="Complete your quick onboarding to launch your custom contractor revenue engine, high-converting website, and automated SMS dispatch system."
+>
+  <Header />
+  <main class="onboarding-main">
+    <section class="onboarding-hero">
+      <div class="container flex-column align-center">
+        <!-- Top Pill Badge -->
+        <div class="onboarding-badge">
+          <span class="badge-dot"></span>
+          <span>NEW CLIENT ONBOARDING</span>
+        </div>
+
+        <h1 class="onboarding-title">
+          LET'S BUILD YOUR <span class="highlight">REVENUE ENGINE</span>
+        </h1>
+        <p class="onboarding-subtitle">
+          Fill out this quick 4-minute questionnaire so our team can build your custom website, launch your ads, and activate your 5-second SMS booking system.
+        </p>
+
+        <div class="time-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>Estimated time: 4–5 minutes • Auto-saves as you type</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="onboarding-form-section">
+      <div class="container flex-column align-center">
+        <!-- Step Progress Bar -->
+        <div class="progress-card">
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBar"></div>
+          </div>
+          <div class="step-indicators">
+            <div class="step-node active" data-step-indicator="1">
+              <span class="node-number">1</span>
+              <span class="node-label">Business & Contact</span>
+            </div>
+            <div class="step-node" data-step-indicator="2">
+              <span class="node-number">2</span>
+              <span class="node-label">Services & Territory</span>
+            </div>
+            <div class="step-node" data-step-indicator="3">
+              <span class="node-number">3</span>
+              <span class="node-label">Offer & Branding</span>
+            </div>
+            <div class="step-node" data-step-indicator="4">
+              <span class="node-number">4</span>
+              <span class="node-label">Accounts & Launch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Card Container -->
+        <div class="form-container">
+          <form id="onboardingForm" class="onboarding-form">
+            <!-- Hidden honeypot field -->
+            <input type="text" name="_hp_site" id="hpSite" class="hp-input" tabindex="-1" autocomplete="off" />
+
+            <!-- ================= STEP 1: BUSINESS & CONTACT ================= -->
+            <div class="form-step active" data-step="1">
+              <div class="step-header">
+                <div class="step-tag">SECTION 1 OF 4</div>
+                <h2 class="step-heading">Business & Contact Details</h2>
+                <p class="step-desc">Where should we send your leads, SMS dispatch notifications, and client inquiries?</p>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group span-2">
+                  <label for="businessName">Company Name <span class="required">*</span></label>
+                  <input type="text" id="businessName" name="businessName" placeholder="e.g. Apex Outdoor Living LLC" required />
+                  <span class="field-hint">As you want it displayed on your website, Google profile, and ads.</span>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="ownerName">Owner / Primary Contact Full Name <span class="required">*</span></label>
+                  <input type="text" id="ownerName" name="ownerName" placeholder="e.g. Mike Henderson" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="ownerPhone">Owner Cell Phone Number <span class="required">*</span></label>
+                  <input type="tel" id="ownerPhone" name="ownerPhone" placeholder="e.g. (555) 234-5678" required />
+                  <span class="field-hint">Where instant SMS lead notifications & booking alerts go.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="businessPhone">Main Business Phone Number <span class="required">*</span></label>
+                  <input type="tel" id="businessPhone" name="businessPhone" placeholder="e.g. (555) 890-1234" required />
+                  <span class="field-hint">Public number for customers on your site and ads.</span>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="email">Primary Notification Email <span class="required">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="e.g. mike@apexoutdoorliving.com" required />
+                  <span class="field-hint">Where leads, estimate requests, and performance reports are sent.</span>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="businessAddress">Physical / Base Address <span class="required">*</span></label>
+                  <input type="text" id="businessAddress" name="businessAddress" placeholder="e.g. 123 Industrial Pkwy, Suite B, Birmingham, MI 48009" required />
+                  <span class="field-hint">Used for Google Maps, local SEO schema, and radius targeting.</span>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-neon btn-next" data-next="2">
+                  Next: Services & Territory
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 2: SERVICES & TERRITORY ================= -->
+            <div class="form-step" data-step="2">
+              <div class="step-header">
+                <div class="step-tag">SECTION 2 OF 4</div>
+                <h2 class="step-heading">Services & Territory Targeting</h2>
+                <p class="step-desc">Tell us exactly what high-ticket jobs you want to dominate and where you want to work.</p>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group span-2">
+                  <label for="primaryTrade">Primary Trade / Industry <span class="required">*</span></label>
+                  <select id="primaryTrade" name="primaryTrade" required>
+                    <option value="" disabled selected>Select your primary trade...</option>
+                    <option value="Landscaping & Hardscaping">Landscaping & Hardscaping</option>
+                    <option value="Remodeling / Kitchen & Bath">Remodeling / Kitchen & Bath</option>
+                    <option value="Roofing & Siding">Roofing & Siding</option>
+                    <option value="Tree Service">Tree Service</option>
+                    <option value="Concrete & Paving">Concrete & Paving</option>
+                    <option value="HVAC / Heating & Cooling">HVAC / Heating & Cooling</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="General Contracting & Additions">General Contracting & Additions</option>
+                    <option value="Painting / Exterior Coating">Painting / Exterior Coating</option>
+                    <option value="Deck & Fence Building">Deck & Fence Building</option>
+                    <option value="Other">Other Trade</option>
+                  </select>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="topServices">Top 2–3 Most Profitable High-Ticket Services <span class="required">*</span></label>
+                  <textarea id="topServices" name="topServices" rows="3" placeholder="e.g. 1. Paver Patios & Retaining Walls&#10;2. Outdoor Kitchens & Fire Features&#10;3. Full Landscape Renovations ($10k+)" required></textarea>
+                  <span class="field-hint">The money-maker jobs you want us to focus your campaigns and website on.</span>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="disqualifiedServices">Services You DO NOT Want <span class="required">*</span></label>
+                  <textarea id="disqualifiedServices" name="disqualifiedServices" rows="3" placeholder="e.g. Lawn mowing, weed pulling, minor sprinkler repair, small handyman fixes." required></textarea>
+                  <span class="field-hint">Negative targeting so you don't waste time on low-dollar tire-kickers.</span>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="serviceArea">Target Service Area <span class="required">*</span></label>
+                  <textarea id="serviceArea" name="serviceArea" rows="3" placeholder="e.g. 25-mile radius around Troy, MI including Bloomfield Hills, Birmingham, Rochester, and West Bloomfield (or list specific zip codes)" required></textarea>
+                  <span class="field-hint">Cities, zip codes, or radius from your base address.</span>
+                </div>
+              </div>
+
+              <div class="form-actions space-between">
+                <button type="button" class="btn btn-dark btn-prev" data-prev="1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow flip">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                  Back
+                </button>
+                <button type="button" class="btn btn-neon btn-next" data-next="3">
+                  Next: Offer & Branding
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 3: OFFER & BRANDING ================= -->
+            <div class="form-step" data-step="3">
+              <div class="step-header">
+                <div class="step-tag">SECTION 3 OF 4</div>
+                <h2 class="step-heading">Offer, Estimates & Media Assets</h2>
+                <p class="step-desc">Help us showcase your craftsmanship and structure your homeowner estimate offer.</p>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group span-2">
+                  <label>Do you offer Free Estimates / Consultations? <span class="required">*</span></label>
+                  <div class="radio-options-grid">
+                    <label class="radio-card">
+                      <input type="radio" name="estimateType" value="Free In-Person Estimates" checked />
+                      <div class="radio-card-content">
+                        <span class="radio-title">Free In-Person Estimates</span>
+                        <span class="radio-sub">We visit the property and provide a free written quote</span>
+                      </div>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="estimateType" value="Paid Consultation / Design Fee" />
+                      <div class="radio-card-content">
+                        <span class="radio-title">Paid Design / Consultation Fee</span>
+                        <span class="radio-sub">We charge a diagnostic or 3D design consultation fee</span>
+                      </div>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="estimateType" value="Free Phone Estimates / Varies" />
+                      <div class="radio-card-content">
+                        <span class="radio-title">Phone / Virtual Quotes First</span>
+                        <span class="radio-sub">Homeowners send photos/measurements before in-person visits</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="logoLink">Company Logo (Link or Cloud Folder)</label>
+                  <input type="text" id="logoLink" name="logoLink" placeholder="e.g. https://drive.google.com/... or https://dropbox.com/..." />
+                  <div class="checkbox-mini">
+                    <input type="checkbox" id="noLogoCheckbox" />
+                    <label for="noLogoCheckbox">I don't have a high-res logo (Please design a clean text/vector logo for me)</label>
+                  </div>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="googleBusinessUrl">Google Business Profile (GBP) Link</label>
+                  <input type="text" id="googleBusinessUrl" name="googleBusinessUrl" placeholder="e.g. https://maps.google.com/?cid=..." />
+                  <span class="field-hint">Used to import 5-star reviews and configure your automated Google review bot.</span>
+                  <div class="checkbox-mini">
+                    <input type="checkbox" id="noGbpCheckbox" />
+                    <label for="noGbpCheckbox">I don't have a Google Business Profile yet (We'll help you set one up)</label>
+                  </div>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="projectPhotosLink">Past Project Photos / Before & Afters (Link)</label>
+                  <input type="text" id="projectPhotosLink" name="projectPhotosLink" placeholder="e.g. Google Drive, Dropbox, iCloud folder link, or OneDrive" />
+                  <span class="field-hint">Real photos of your completed projects, trucks, or crew significantly boost conversion rates.</span>
+                  <div class="checkbox-mini">
+                    <input type="checkbox" id="photosLaterCheckbox" />
+                    <label for="photosLaterCheckbox">I will text or email project photos to the build team later</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions space-between">
+                <button type="button" class="btn btn-dark btn-prev" data-prev="2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow flip">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                  Back
+                </button>
+                <button type="button" class="btn btn-neon btn-next" data-next="4">
+                  Next: Accounts & Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 4: ACCOUNTS & LAUNCH ================= -->
+            <div class="form-step" data-step="4">
+              <div class="step-header">
+                <div class="step-tag">SECTION 4 OF 4</div>
+                <h2 class="step-heading">Accounts & Final Launch Notes</h2>
+                <p class="step-desc">Final details to connect your domain and prepare your high-converting launch.</p>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group span-2">
+                  <label for="domainRegistrar">Domain Registrar (Where your domain is purchased)</label>
+                  <select id="domainRegistrar" name="domainRegistrar">
+                    <option value="" disabled selected>Select your domain provider...</option>
+                    <option value="GoDaddy">GoDaddy</option>
+                    <option value="Namecheap">Namecheap</option>
+                    <option value="Cloudflare">Cloudflare</option>
+                    <option value="Google Domains / Squarespace">Google Domains / Squarespace</option>
+                    <option value="Wix">Wix</option>
+                    <option value="Network Solutions">Network Solutions</option>
+                    <option value="I need You To Buy / Provide A New Domain">I don't have a domain (Please buy/provide one for me)</option>
+                    <option value="Other">Other Provider / Not Sure</option>
+                  </select>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="facebookPageUrl">Facebook Business Page URL</label>
+                  <input type="text" id="facebookPageUrl" name="facebookPageUrl" placeholder="e.g. https://facebook.com/ApexOutdoorLiving" />
+                  <span class="field-hint">Used to run local Meta ads from your branded business page.</span>
+                  <div class="checkbox-mini">
+                    <input type="checkbox" id="noFbCheckbox" />
+                    <label for="noFbCheckbox">I don't have a Facebook Business Page yet (We'll help create one)</label>
+                  </div>
+                </div>
+
+                <div class="form-group span-2">
+                  <label for="additionalNotes">Special Requests, Competitor Sites You Like, or Launch Notes</label>
+                  <textarea id="additionalNotes" name="additionalNotes" rows="4" placeholder="e.g. 'We really like clean dark designs with bold project galleries', 'We specialize in Unilock pavers', or any special licenses/warranties you offer."></textarea>
+                </div>
+              </div>
+
+              <!-- Submit Box -->
+              <div class="submit-box">
+                <div class="submit-guarantee">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="shield-icon">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                  <span>Backed by our <strong>10 Qualified Estimates in 90 Days</strong> Guarantee</span>
+                </div>
+
+                <div class="form-actions space-between">
+                  <button type="button" class="btn btn-dark btn-prev" data-prev="3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow flip">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                    Back
+                  </button>
+                  <button type="submit" id="submitBtn" class="btn btn-neon btn-lg btn-submit-final">
+                    <span class="btn-text">COMPLETE ONBOARDING & LAUNCH</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <!-- ================= SUCCESS CONFIRMATION SCREEN ================= -->
+          <div id="successCard" class="success-card hidden">
+            <div class="success-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+
+            <div class="success-badge">ONBOARDING RECEIVED</div>
+            <h2 class="success-title">YOU'RE ALL SET!</h2>
+            <p class="success-subtitle">
+              We've received your business details. Our technical team is now provisioning your custom high-ticket contractor site, setting up your ad campaigns, and connecting your 5-second SMS dispatch system.
+            </p>
+
+            <div class="roadmap-card">
+              <h3 class="roadmap-title">WHAT HAPPENS NEXT</h3>
+              <div class="roadmap-list">
+                <div class="roadmap-item">
+                  <div class="roadmap-num">1</div>
+                  <div class="roadmap-info">
+                    <h4>Account Provisioning (Next 24 Hours)</h4>
+                    <p>We configure your dedicated CRM, SMS phone lines, and lead notification routing.</p>
+                  </div>
+                </div>
+                <div class="roadmap-item">
+                  <div class="roadmap-num">2</div>
+                  <div class="roadmap-info">
+                    <h4>Website & Funnel Build (Days 2–5)</h4>
+                    <p>Our design team creates your high-converting contractor website and review engine.</p>
+                  </div>
+                </div>
+                <div class="roadmap-item">
+                  <div class="roadmap-num">3</div>
+                  <div class="roadmap-info">
+                    <h4>Review & Go-Live (Day 7)</h4>
+                    <p>We review your live system together, connect your domain, and turn on the lead flow.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="success-actions">
+              <a href="/" class="btn btn-neon btn-lg">Return to Homepage</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .onboarding-main {
+    background-color: var(--bg-dark);
+    min-height: 100vh;
+    padding-bottom: 6rem;
+  }
+
+  /* Hero Section */
+  .onboarding-hero {
+    padding: 4.5rem 0 2.5rem 0;
+    text-align: center;
+  }
+
+  .onboarding-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #1e2025;
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
+    padding: 0.45rem 1.15rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    letter-spacing: 0.04em;
+    color: var(--neon-green);
+    margin-bottom: 1.5rem;
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--neon-green);
+    display: inline-block;
+  }
+
+  .onboarding-title {
+    font-size: 2.75rem;
+    font-weight: 900;
+    color: #ffffff;
+    max-width: 900px;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .onboarding-title .highlight {
+    color: var(--neon-green);
+    position: relative;
+    display: inline-block;
+  }
+
+  .onboarding-subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    max-width: 680px;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .time-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    font-weight: 600;
+  }
+
+  .time-pill svg {
+    width: 16px;
+    height: 16px;
+    color: var(--neon-green);
+  }
+
+  /* Progress Card */
+  .onboarding-form-section {
+    padding-top: 1rem;
+  }
+
+  .progress-card {
+    background: #181b20;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    padding: 1.75rem 2rem;
+    max-width: 860px;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: #2b303a;
+    border: 1.5px solid #000000;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    width: 25%;
+    background: var(--neon-green);
+    transition: width 0.3s ease;
+  }
+
+  .step-indicators {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .step-node {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    opacity: 0.45;
+    transition: opacity 0.2s ease;
+  }
+
+  .step-node.active {
+    opacity: 1;
+  }
+
+  .step-node.completed .node-number {
+    background: var(--neon-green);
+    color: #000000;
+  }
+
+  .node-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #2b303a;
+    border: 1.5px solid #000000;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-node.active .node-number {
+    background: var(--btn-orange);
+    color: #ffffff;
+    border-color: #000000;
+  }
+
+  .node-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Form Container */
+  .form-container {
+    max-width: 860px;
+    width: 100%;
+  }
+
+  .onboarding-form {
+    background: #181b20;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    padding: 3rem 2.75rem;
+  }
+
+  .form-step {
+    display: none;
+  }
+
+  .form-step.active {
+    display: block;
+    animation: fadeIn 0.25s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-header {
+    margin-bottom: 2.25rem;
+    border-bottom: 1.5px solid #2b303a;
+    padding-bottom: 1.5rem;
+  }
+
+  .step-tag {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--neon-green);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  .step-heading {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+  }
+
+  .step-desc {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .span-2 {
+    grid-column: span 2;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: 0.01em;
+  }
+
+  .required {
+    color: #f87171;
+  }
+
+  .field-hint {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group select,
+  .form-group textarea {
+    background: #0f1115;
+    border: 2px solid #333a46;
+    color: #ffffff;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    border-radius: 0;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 0 2px rgba(112, 224, 0, 0.2);
+  }
+
+  .form-group select option {
+    background: #181b20;
+    color: #ffffff;
+  }
+
+  .checkbox-mini {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+  }
+
+  .checkbox-mini input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--neon-green);
+    cursor: pointer;
+  }
+
+  .checkbox-mini label {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* Radio Cards */
+  .radio-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .radio-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: #0f1115;
+    border: 2px solid #333a46;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .radio-card:hover {
+    border-color: #556070;
+  }
+
+  .radio-card input[type="radio"] {
+    margin-top: 0.2rem;
+    accent-color: var(--neon-green);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  .radio-card input[type="radio"]:checked + .radio-card-content .radio-title {
+    color: var(--neon-green);
+  }
+
+  .radio-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .radio-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .radio-sub {
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+
+  /* Form Actions */
+  .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .form-actions.space-between {
+    justify-content: space-between;
+  }
+
+  .btn-prev {
+    background: #262a33;
+    color: #ffffff;
+  }
+
+  .btn-prev:hover {
+    background: #323742;
+  }
+
+  .btn-arrow {
+    width: 18px;
+    height: 18px;
+    margin-left: 0.4rem;
+  }
+
+  .btn-arrow.flip {
+    margin-left: 0;
+    margin-right: 0.4rem;
+    transform: rotate(180deg);
+  }
+
+  .submit-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    border-top: 1.5px solid #2b303a;
+    padding-top: 1.75rem;
+  }
+
+  .submit-guarantee {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(112, 224, 0, 0.08);
+    border: 1.5px solid var(--neon-green);
+    padding: 0.85rem 1.25rem;
+    color: #f1f5f9;
+    font-size: 0.85rem;
+  }
+
+  .shield-icon {
+    width: 22px;
+    height: 22px;
+    color: var(--neon-green);
+    flex-shrink: 0;
+  }
+
+  .btn-submit-final {
+    font-size: 0.95rem;
+    padding: 1.1rem 2rem;
+  }
+
+  .hp-input {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Success Card */
+  .success-card {
+    background: #181b20;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    padding: 3.5rem 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .success-card.hidden {
+    display: none;
+  }
+
+  .success-icon-wrap {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: rgba(112, 224, 0, 0.15);
+    border: 2.5px solid var(--neon-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .success-icon-wrap svg {
+    width: 38px;
+    height: 38px;
+    color: var(--neon-green);
+  }
+
+  .success-badge {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--neon-green);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .success-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .success-subtitle {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    max-width: 620px;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .roadmap-card {
+    background: #0f1115;
+    border: 2px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    padding: 2rem 2.25rem;
+    max-width: 680px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2.5rem;
+  }
+
+  .roadmap-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #2b303a;
+    padding-bottom: 0.75rem;
+  }
+
+  .roadmap-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .roadmap-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .roadmap-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--neon-green);
+    color: #000000;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .roadmap-info h4 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+  }
+
+  .roadmap-info p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.45;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .onboarding-title {
+      font-size: 1.85rem;
+    }
+    .onboarding-form {
+      padding: 2rem 1.25rem;
+    }
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .span-2 {
+      grid-column: span 1;
+    }
+    .progress-card {
+      padding: 1.25rem 1rem;
+    }
+    .step-indicators {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+    }
+    .node-label {
+      font-size: 0.75rem;
+    }
+    .form-actions {
+      flex-direction: column-reverse;
+      width: 100%;
+    }
+    .form-actions button {
+      width: 100%;
+    }
+    .success-card {
+      padding: 2rem 1.25rem;
+    }
+    .success-title {
+      font-size: 1.85rem;
+    }
+    .roadmap-card {
+      padding: 1.5rem 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/TSqcO2Er7wAliwNMEQpv/webhook-trigger/899407be-efbe-4c5f-97c2-fd2cd9477633';
+  const STORAGE_KEY = 'ywc_onboarding_draft';
+
+  let currentStep = 1;
+  const totalSteps = 4;
+
+  const form = document.getElementById('onboardingForm') as HTMLFormElement | null;
+  const progressBar = document.getElementById('progressBar');
+  const successCard = document.getElementById('successCard');
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
+
+  // Checkbox helpers to auto-fill text inputs
+  const setupCheckboxHelper = (chkId: string, inputId: string, defaultText: string) => {
+    const chk = document.getElementById(chkId) as HTMLInputElement | null;
+    const input = document.getElementById(inputId) as HTMLInputElement | null;
+    if (chk && input) {
+      chk.addEventListener('change', () => {
+        if (chk.checked) {
+          input.value = defaultText;
+          input.disabled = true;
+        } else {
+          input.disabled = false;
+          input.value = '';
+        }
+      });
+    }
+  };
+
+  setupCheckboxHelper('noLogoCheckbox', 'logoLink', 'Need logo designed / No logo file currently');
+  setupCheckboxHelper('noGbpCheckbox', 'googleBusinessUrl', 'No Google Business Profile yet');
+  setupCheckboxHelper('photosLaterCheckbox', 'projectPhotosLink', 'Will email/text project photos to build team');
+  setupCheckboxHelper('noFbCheckbox', 'facebookPageUrl', 'No Facebook Business Page yet');
+
+  // Multi-step navigation logic
+  const updateStepView = (step: number) => {
+    currentStep = step;
+    const steps = document.querySelectorAll('.form-step');
+    steps.forEach((s) => {
+      const stepNum = parseInt(s.getAttribute('data-step') || '1', 10);
+      s.classList.toggle('active', stepNum === currentStep);
+    });
+
+    // Update Progress bar
+    if (progressBar) {
+      const percentage = (currentStep / totalSteps) * 100;
+      progressBar.style.width = `${percentage}%`;
+    }
+
+    // Update Step Indicators
+    const indicators = document.querySelectorAll('.step-node');
+    indicators.forEach((node) => {
+      const indNum = parseInt(node.getAttribute('data-step-indicator') || '1', 10);
+      node.classList.toggle('active', indNum === currentStep);
+      node.classList.toggle('completed', indNum < currentStep);
+    });
+
+    window.scrollTo({ top: 180, behavior: 'smooth' });
+  };
+
+  // Step Validation
+  const validateStep = (step: number): boolean => {
+    const stepEl = document.querySelector(`.form-step[data-step="${step}"]`);
+    if (!stepEl) return true;
+
+    const requiredInputs = stepEl.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[required]');
+    let isValid = true;
+
+    requiredInputs.forEach((input) => {
+      if (input.disabled) return;
+      if (!input.checkValidity() || !input.value.trim()) {
+        isValid = false;
+        input.reportValidity();
+      }
+    });
+
+    return isValid;
+  };
+
+  // Next Buttons
+  document.querySelectorAll('.btn-next').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const nextStep = parseInt(btn.getAttribute('data-next') || '1', 10);
+      if (validateStep(currentStep)) {
+        updateStepView(nextStep);
+        saveDraft();
+      }
+    });
+  });
+
+  // Prev Buttons
+  document.querySelectorAll('.btn-prev').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const prevStep = parseInt(btn.getAttribute('data-prev') || '1', 10);
+      updateStepView(prevStep);
+    });
+  });
+
+  // Draft saving in localStorage
+  const saveDraft = () => {
+    if (!form) return;
+    const formData = new FormData(form);
+    const data: Record<string, string> = {};
+    formData.forEach((value, key) => {
+      if (key !== '_hp_site') data[key] = value.toString();
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  };
+
+  const loadDraft = () => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved || !form) return;
+    try {
+      const data = JSON.parse(saved);
+      Object.keys(data).forEach((key) => {
+        const field = form.elements.namedItem(key) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
+        if (field) {
+          if (field instanceof RadioNodeList) {
+            field.value = data[key];
+          } else {
+            field.value = data[key];
+          }
+        }
+      });
+    } catch (e) {
+      console.error('Error loading draft', e);
+    }
+  };
+
+  loadDraft();
+
+  // Handle Form Submission
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Check honeypot
+    const hp = (document.getElementById('hpSite') as HTMLInputElement)?.value;
+    if (hp && hp.trim() !== '') {
+      form.style.display = 'none';
+      successCard?.classList.remove('hidden');
+      return;
+    }
+
+    if (!validateStep(4)) return;
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span>Submitting Onboarding...</span>
+      `;
+    }
+
+    const formData = new FormData(form);
+    const payload: Record<string, any> = {
+      form_name: 'Client Onboarding - Contractor Revenue Engine',
+      submitted_at: new Date().toISOString(),
+      businessName: formData.get('businessName') || '',
+      ownerName: formData.get('ownerName') || '',
+      ownerPhone: formData.get('ownerPhone') || '',
+      businessPhone: formData.get('businessPhone') || '',
+      email: formData.get('email') || '',
+      businessAddress: formData.get('businessAddress') || '',
+      primaryTrade: formData.get('primaryTrade') || '',
+      topServices: formData.get('topServices') || '',
+      disqualifiedServices: formData.get('disqualifiedServices') || '',
+      serviceArea: formData.get('serviceArea') || '',
+      estimateType: formData.get('estimateType') || 'Free In-Person Estimates',
+      logoLink: formData.get('logoLink') || '',
+      googleBusinessUrl: formData.get('googleBusinessUrl') || '',
+      projectPhotosLink: formData.get('projectPhotosLink') || '',
+      domainRegistrar: formData.get('domainRegistrar') || '',
+      facebookPageUrl: formData.get('facebookPageUrl') || '',
+      additionalNotes: formData.get('additionalNotes') || '',
+    };
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      // Clear draft
+      localStorage.removeItem(STORAGE_KEY);
+
+      // Show success screen
+      form.style.display = 'none';
+      const progressNode = document.querySelector('.progress-card') as HTMLElement | null;
+      if (progressNode) progressNode.style.display = 'none';
+      successCard?.classList.remove('hidden');
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    } catch (err) {
+      console.error('Submission error:', err);
+      alert('There was a slight connection issue submitting the form. Please try again or reach out to support.');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <span>COMPLETE ONBOARDING & LAUNCH</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        `;
+      }
+    }
+  });
+</script>

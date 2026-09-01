@@ -50,7 +50,10 @@ import Footer from '../components/Footer.astro';
           </ol>
         </div>
 
-        <a href="/" class="btn btn-neon btn-lg">Back to Home</a>
+        <div class="thank-you-actions">
+          <a href="/onboarding" class="btn btn-neon btn-lg">Complete Onboarding Form (4 Mins)</a>
+          <a href="/" class="btn btn-dark btn-lg">Back to Home</a>
+        </div>
       </div>
     </section>
   </main>
@@ -163,6 +166,14 @@ import Footer from '../components/Footer.astro';
     line-height: 1.5;
   }
 
+  .thank-you-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   @media (max-width: 768px) {
     .thank-you-heading {
       font-size: 2rem;
@@ -172,6 +183,13 @@ import Footer from '../components/Footer.astro';
     }
     .next-steps-card {
       padding: 2rem 1.5rem;
+    }
+    .thank-you-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    .thank-you-actions .btn {
+      width: 100%;
     }
   }
 </style>
