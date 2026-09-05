@@ -500,8 +500,33 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ================= 9. ASSESSMENT REQUEST FORM ================= -->
-    <section class="section form-section" id="assessment">
+    <!-- ================= 9. GHL BOOKING CALENDAR EMBED ================= -->
+    <section class="section booking-section" id="assessment">
+      <div class="container flex-column align-center">
+        <div class="text-center form-header-box">
+          <span class="form-badge">FREE 1-ON-1 AUDIT</span>
+          <h2 class="form-title">SCHEDULE YOUR LOCAL GROWTH ASSESSMENT</h2>
+          <p class="form-desc">
+            Pick a time that works best for you below to review your territory, check Google LSA competition, and map your custom lead-to-booking roadmap.
+          </p>
+        </div>
+
+        <div class="booking-embed-card">
+          <iframe
+            src="https://link.yourwebclub.com/widget/booking/IiMXa8tjg71xunqbWOnY"
+            style="width: 100%; border: none; overflow: hidden; min-height: 600px;"
+            scrolling="no"
+            id="IiMXa8tjg71xunqbWOnY_lce"
+            allow="payment"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <script is:inline src="https://link.yourwebclub.com/js/form_embed.js"></script>
+
+    <!-- HELD FOR LATER USE: Static Assessment Lead Form
+    <section class="section form-section" style="display: none;">
       <div class="container flex-column align-center">
         <div class="form-wrapper">
           <div class="text-center form-header-box">
@@ -513,9 +538,7 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <form id="assessmentForm" class="assessment-form">
-            <!-- Honeypot -->
             <input type="text" name="_hp_site" id="hpSite" class="hp-input" tabindex="-1" autocomplete="off" />
-
             <div class="form-row grid-2">
               <div class="form-group">
                 <label for="fullName">Your Full Name <span class="req">*</span></label>
@@ -526,7 +549,6 @@ import Footer from '../components/Footer.astro';
                 <input type="text" id="businessName" name="businessName" placeholder="e.g. Miller Roofing & Siding" required />
               </div>
             </div>
-
             <div class="form-row grid-2">
               <div class="form-group">
                 <label for="phone">Phone Number <span class="req">*</span></label>
@@ -537,7 +559,6 @@ import Footer from '../components/Footer.astro';
                 <input type="email" id="email" name="email" placeholder="e.g. dave@millerroofing.com" required />
               </div>
             </div>
-
             <div class="form-row grid-2">
               <div class="form-group">
                 <label for="primaryTrade">Your Trade / Industry <span class="req">*</span></label>
@@ -561,33 +582,14 @@ import Footer from '../components/Footer.astro';
                 <input type="text" id="targetLocation" name="targetLocation" placeholder="e.g. Dallas, TX & surrounding 30 miles" required />
               </div>
             </div>
-
             <button type="submit" id="submitBtn" class="btn btn-neon btn-lg btn-submit-full">
               <span>GET MY CUSTOM GROWTH ASSESSMENT</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
             </button>
-
-            <p class="privacy-note">
-              🔒 100% Privacy. We will never share your information. No hard sales pitch—just real numbers and territory data.
-            </p>
           </form>
-
-          <!-- Success Confirmation -->
-          <div id="formSuccess" class="form-success-box hidden">
-            <div class="success-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </div>
-            <h3>ASSESSMENT REQUEST RECEIVED!</h3>
-            <p>We are pulling local search data and LSA competition for your market. An account executive will reach out to review your custom roadmap shortly.</p>
-            <a href="/booking" class="btn btn-neon">SCHEDULE CALL ON CALENDAR NOW</a>
-          </div>
         </div>
       </div>
     </section>
+    -->
 
     <!-- ================= 10. FAQ ACCORDION ================= -->
     <section class="section faq-section">
@@ -1488,6 +1490,21 @@ import Footer from '../components/Footer.astro';
     font-size: 0.92rem;
     color: #cbd5e1;
     line-height: 1.6;
+  }
+
+  /* Booking Embed Card */
+  .booking-section {
+    padding: 5.5rem 0 6rem 0;
+  }
+
+  .booking-embed-card {
+    width: 100%;
+    max-width: 900px;
+    background: #ffffff;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    overflow: hidden;
+    margin-top: 1rem;
   }
 
   /* Responsive Breakpoints */
