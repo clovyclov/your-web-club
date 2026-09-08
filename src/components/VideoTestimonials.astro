@@ -56,18 +56,29 @@ const testimonials = [
     <div class="testimonials-grid">
       {testimonials.map((t) => (
         <div class="video-card">
-          <!-- Video Frame (9:16 Vertical Aspect Ratio) -->
-          <div class="video-player-wrapper">
+          <!-- Video Frame (9:16 Vertical Aspect Ratio) with Zero-Black Overlay -->
+          <div class="video-player-wrapper" data-video-wrapper>
             <video
               controls
               playsinline
-              preload="metadata"
+              preload="none"
               poster={t.poster}
               class="testimonial-video"
             >
-              <source src={`${t.videoUrl}#t=0.001`} type="video/mp4" />
+              <source src={t.videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+
+            <!-- Always-visible Thumbnail Overlay: eliminates browser black-frame decoder glitch -->
+            <div class="poster-overlay" data-poster-overlay>
+              <img src={t.poster} alt={t.name} class="poster-img" loading="eager" />
+              <button class="play-btn-pulse" type="button" aria-label={`Play testimonial from ${t.name}`}>
+                <svg viewBox="0 0 24 24" fill="currentColor" class="play-svg">
+                  <polygon points="6 4 20 12 6 20 6 4"></polygon>
+                </svg>
+              </button>
+            </div>
+
             <div class="video-tag-pill">{t.tag}</div>
           </div>
 
@@ -102,6 +113,28 @@ const testimonials = [
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll('[data-video-wrapper]').forEach((wrapper) => {
+    const overlay = wrapper.querySelector('[data-poster-overlay]') as HTMLElement | null;
+    const video = wrapper.querySelector('video') as HTMLVideoElement | null;
+
+    if (overlay && video) {
+      overlay.addEventListener('click', () => {
+        overlay.classList.add('is-hidden');
+        video.play().catch(() => {});
+      });
+
+      video.addEventListener('play', () => {
+        overlay.classList.add('is-hidden');
+      });
+
+      video.addEventListener('ended', () => {
+        overlay.classList.remove('is-hidden');
+      });
+    }
+  });
+</script>
 
 <style>
   .video-testimonials-section {
@@ -179,10 +212,71 @@ const testimonials = [
     display: block;
   }
 
+  /* Robust Thumbnail Overlay */
+  .poster-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  .poster-overlay.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .play-btn-pulse {
+    position: absolute;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: rgba(10, 11, 13, 0.85);
+    border: 2.5px solid var(--neon-green);
+    color: var(--neon-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 24px rgba(112, 224, 0, 0.45);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.2s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0;
+  }
+
+  .poster-overlay:hover .play-btn-pulse {
+    transform: scale(1.12);
+    background: var(--neon-green);
+    color: #000000;
+    box-shadow: 0 0 36px rgba(112, 224, 0, 0.75);
+  }
+
+  .play-svg {
+    width: 26px;
+    height: 26px;
+    margin-left: 4px;
+  }
+
   .video-tag-pill {
     position: absolute;
     top: 12px;
     left: 12px;
+    z-index: 3;
     background: rgba(10, 11, 13, 0.9);
     border: 1.5px solid #000000;
     color: var(--neon-green);
