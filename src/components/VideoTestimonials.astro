@@ -18,6 +18,7 @@ const testimonials = [
     company: "Got Yard Landscape & Construction",
     tag: "GOOGLE ADS & CONTRACTOR WEB",
     videoUrl: "https://assets.cdn.filesafe.space/TSqcO2Er7wAliwNMEQpv/media/6a975dc5ef6af944f0030306.mp4",
+    poster: "/testimonials/rylan-got-yard.jpg",
     highlight: "He's great at Google Ads and even better at website design... I got leads directly to my text message and email.",
     stats: "Sold $37k in projects almost immediately"
   },
@@ -27,6 +28,7 @@ const testimonials = [
     company: "Campaign Optimization & Audit",
     tag: "GOOGLE ADS CAMPAIGN AUDIT",
     videoUrl: "https://assets.cdn.filesafe.space/TSqcO2Er7wAliwNMEQpv/media/6a975dc5fac7854efe16ac04.mp4",
+    poster: "/testimonials/google-ads-audit.jpg",
     highlight: "He walked me through keyword research, conversion tracking, and negative keywords. Saved me weeks of confusion.",
     stats: "Complete Google Ads Overhaul"
   },
@@ -36,6 +38,7 @@ const testimonials = [
     company: "Assembly Jiu-Jitsu Macomb",
     tag: "LOCAL LEAD GENERATION",
     videoUrl: "https://assets.cdn.filesafe.space/TSqcO2Er7wAliwNMEQpv/media/6a975dc59b2eaead5c280754.mp4",
+    poster: "/testimonials/tia-assembly-jj.jpg",
     highlight: "Generated high quality leads and really helped provide us with information on what would help improve our business.",
     stats: "Consistent Qualified Monthly Leads"
   }
@@ -59,9 +62,10 @@ const testimonials = [
               controls
               playsinline
               preload="metadata"
+              poster={t.poster}
               class="testimonial-video"
             >
-              <source src={t.videoUrl} type="video/mp4" />
+              <source src={`${t.videoUrl}#t=0.001`} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div class="video-tag-pill">{t.tag}</div>
