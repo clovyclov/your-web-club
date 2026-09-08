@@ -1,0 +1,295 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  kicker?: string;
+}
+
+const {
+  kicker = "PROVEN TRACK RECORD",
+  title = "HEAR DIRECTLY FROM OUR CLIENTS",
+  subtitle = "Watch real business owners and contractors share their experience with our Google Ads management, high-converting websites, and automated lead follow-up."
+} = Astro.props;
+
+const testimonials = [
+  {
+    id: "testimonial-rylan",
+    name: "Rylan",
+    company: "Got Yard Landscape & Construction",
+    tag: "GOOGLE ADS & CONTRACTOR WEB",
+    videoUrl: "https://assets.cdn.filesafe.space/TSqcO2Er7wAliwNMEQpv/media/6a975dc5ef6af944f0030306.mp4",
+    highlight: "He's great at Google Ads and even better at website design... I got leads directly to my text message and email.",
+    stats: "Sold $37k in projects almost immediately"
+  },
+  {
+    id: "testimonial-audit",
+    name: "Google Ads Strategy Review",
+    company: "Campaign Optimization & Audit",
+    tag: "GOOGLE ADS CAMPAIGN AUDIT",
+    videoUrl: "https://assets.cdn.filesafe.space/TSqcO2Er7wAliwNMEQpv/media/6a975dc5fac7854efe16ac04.mp4",
+    highlight: "He walked me through keyword research, conversion tracking, and negative keywords. Saved me weeks of confusion.",
+    stats: "Complete Google Ads Overhaul"
+  },
+  {
+    id: "testimonial-tia",
+    name: "Tia",
+    company: "Assembly Jiu-Jitsu Macomb",
+    tag: "LOCAL LEAD GENERATION",
+    videoUrl: "https://assets.cdn.filesafe.space/TSqcO2Er7wAliwNMEQpv/media/6a975dc59b2eaead5c280754.mp4",
+    highlight: "Generated high quality leads and really helped provide us with information on what would help improve our business.",
+    stats: "Consistent Qualified Monthly Leads"
+  }
+];
+---
+
+<section class="section video-testimonials-section">
+  <div class="container flex-column align-center">
+    <div class="section-header text-center">
+      <span class="section-kicker">{kicker}</span>
+      <h2 class="section-title">{title}</h2>
+      <p class="section-subtitle">{subtitle}</p>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map((t) => (
+        <div class="video-card">
+          <!-- Video Frame (9:16 Vertical Aspect Ratio) -->
+          <div class="video-player-wrapper">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              class="testimonial-video"
+            >
+              <source src={t.videoUrl} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-tag-pill">{t.tag}</div>
+          </div>
+
+          <!-- Card Content Info -->
+          <div class="card-content">
+            <div class="stat-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>{t.stats}</span>
+            </div>
+
+            <blockquote class="quote-snippet">
+              "{t.highlight}"
+            </blockquote>
+
+            <div class="client-author">
+              <div class="author-avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="author-details">
+                <h4 class="author-name">{t.name}</h4>
+                <p class="author-company">{t.company}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .video-testimonials-section {
+    padding: 5.5rem 0;
+    position: relative;
+    background-color: var(--bg-dark);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .section-kicker {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--neon-green);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    max-width: 720px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.6;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1120px;
+  }
+
+  .video-card {
+    background: #181b20;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 0px #000000;
+  }
+
+  .video-player-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #000000;
+    overflow: hidden;
+    border-bottom: 2px solid #000000;
+  }
+
+  .testimonial-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-tag-pill {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(10, 11, 13, 0.9);
+    border: 1.5px solid #000000;
+    color: var(--neon-green);
+    font-family: var(--font-heading);
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 0.3rem 0.65rem;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .card-content {
+    padding: 1.5rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+  }
+
+  .stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(112, 224, 0, 0.1);
+    border: 1px solid rgba(112, 224, 0, 0.35);
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--neon-green);
+    width: fit-content;
+  }
+
+  .check-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .quote-snippet {
+    font-size: 0.92rem;
+    color: #cbd5e1;
+    line-height: 1.55;
+    font-style: italic;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .client-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-top: 1px solid #2b303a;
+    padding-top: 1rem;
+  }
+
+  .author-avatar {
+    width: 38px;
+    height: 38px;
+    background: #262a33;
+    border: 1.5px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .author-avatar svg {
+    width: 20px;
+    height: 20px;
+    color: var(--neon-green);
+  }
+
+  .author-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .author-name {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .author-company {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  @media (max-width: 992px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .video-testimonials-section {
+      padding: 4rem 0;
+    }
+    .section-title {
+      font-size: 1.85rem;
+    }
+    .section-subtitle {
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+  }
+</style>
