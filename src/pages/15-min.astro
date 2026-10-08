@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Schedule a 15-Minute Call | Your Web Club"
+  description="Select a convenient time for your 15-minute call."
+  includeLeadModal={false}
+>
+  <main class="booking-page">
+    <div class="booking-container">
+      <div class="logo-wrapper">
+        <a href="/" aria-label="Your Web Club Home">
+          <img
+            src="/logos/ywc-logo.png"
+            alt="Your Web Club Logo"
+            class="brand-logo"
+          />
+        </a>
+      </div>
+
+      <div class="calendar-card">
+        <iframe
+          src="https://link.yourwebclub.com/widget/booking/jxHMlE7eVofaCHcGusq1"
+          allow="payment"
+          style="width: 100%; border: none; overflow: hidden; min-height: 650px;"
+          scrolling="no"
+          id="jxHMlE7eVofaCHcGusq1_1791440048190"
+        ></iframe>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script is:inline src="https://link.yourwebclub.com/js/form_embed.js" type="text/javascript"></script>
+
+<style>
+  .booking-page {
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1rem 4rem 1rem;
+  }
+
+  .booking-container {
+    width: 100%;
+    max-width: 860px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
+  .brand-logo {
+    height: 42px;
+    width: auto;
+    display: block;
+  }
+
+  .calendar-card {
+    width: 100%;
+    background: #181b20;
+    border: 2.5px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    padding: 0.5rem;
+    overflow: hidden;
+  }
+
+  @media (max-width: 640px) {
+    .booking-page {
+      padding: 1.5rem 0.75rem 3rem 0.75rem;
+    }
+
+    .brand-logo {
+      height: 36px;
+    }
+
+    .calendar-card {
+      padding: 0.25rem;
+      border-width: 2px;
+      box-shadow: 4px 4px 0px #000000;
+    }
+  }
+</style>
