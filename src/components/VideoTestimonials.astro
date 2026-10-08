@@ -1,17 +1,34 @@
 ---
+export interface TestimonialItem {
+  id: string;
+  name: string;
+  company: string;
+  tag: string;
+  videoUrl: string;
+  poster: string;
+  highlight: string;
+  stats: string;
+}
+
 interface Props {
   title?: string;
   subtitle?: string;
   kicker?: string;
+  items?: TestimonialItem[];
+  limit?: number;
 }
 
-const {
-  kicker = "PROVEN TRACK RECORD",
-  title = "HEAR DIRECTLY FROM OUR CLIENTS",
-  subtitle = "Watch real business owners and contractors share their experience with our Google Ads management, high-converting websites, and automated lead follow-up."
-} = Astro.props;
-
-const testimonials = [
+const allTestimonials: TestimonialItem[] = [
+  {
+    id: "testimonial-haisam",
+    name: "Haisam",
+    company: "Dumpsters Now",
+    tag: "GOOGLE ADS & LOCAL LEAD GEN",
+    videoUrl: "https://assets.cdn.filesafe.space/TSqcO2Er7wAliwNMEQpv/media/6ac731eb8c077584b4ee0b53.mp4",
+    poster: "/testimonials/haisam-dumpsters-now.jpg",
+    highlight: "He handles all of our website marketing and our Google Ads. He's done a great job putting our business in front of all the right customers and generating quality leads.",
+    stats: "Metro Detroit Local Inquiries"
+  },
   {
     id: "testimonial-rylan",
     name: "Rylan",
@@ -33,6 +50,16 @@ const testimonials = [
     stats: "Complete Google Ads Overhaul"
   },
   {
+    id: "testimonial-moe",
+    name: "Moe",
+    company: "Dumpsters 911",
+    tag: "TRADE WEBSITE & SPEED TO LEAD",
+    videoUrl: "https://assets.cdn.filesafe.space/TSqcO2Er7wAliwNMEQpv/media/6ac731eb195f9172ede4a8f0.mp4",
+    poster: "/testimonials/moe-dumpsters-911.jpg",
+    highlight: "Your Web Club did a really great job building our website. Thank you Jay and we appreciate your hard work.",
+    stats: "High-Converting Trade Website"
+  },
+  {
     id: "testimonial-tia",
     name: "Tia",
     company: "Assembly Jiu-Jitsu Macomb",
@@ -43,6 +70,19 @@ const testimonials = [
     stats: "Consistent Qualified Monthly Leads"
   }
 ];
+
+const {
+  kicker = "PROVEN TRACK RECORD",
+  title = "HEAR DIRECTLY FROM OUR CLIENTS",
+  subtitle = "Watch real business owners and contractors share their experience with our Google Ads management, high-converting websites, and automated lead follow-up.",
+  items,
+  limit
+} = Astro.props;
+
+let testimonials = items || allTestimonials;
+if (limit && limit > 0) {
+  testimonials = testimonials.slice(0, limit);
+}
 ---
 
 <section class="section video-testimonials-section">
@@ -175,10 +215,11 @@ const testimonials = [
 
   .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     width: 100%;
-    max-width: 1120px;
+    max-width: 1180px;
+    justify-content: center;
   }
 
   .video-card {
@@ -372,8 +413,15 @@ const testimonials = [
 
   @media (max-width: 992px) {
     .testimonials-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      max-width: 680px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .testimonials-grid {
       grid-template-columns: 1fr;
-      max-width: 480px;
+      max-width: 440px;
     }
   }
 
